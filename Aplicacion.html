@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>TERMAN MERRIL - ADMIN</title>
+    <!-- JQUERY -->
+    <script language="JavaScript" src="js/jquery-1.12.4.min.js" type="text/javascript"></script> 
+
+    <!-- API -->
+    <script type="text/javascript" src="js/methods.js"></script>
+    
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+      
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="setData();consultarSerie1();">
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Admin.html">TERMAN MERRIL - ADMINISTRADOR</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="us" name="us"><i class="fa fa-user"></i> John Smith<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="Admin.html"><i class="fa fa-fw fa-home"></i> Inicio</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a onclick="removeData();"><i class="fa fa-fw fa-power-off"></i> Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active" id="agrega" name="agrega">
+                        <a href="Registrar.html"><i class="fa fa-fw fa-plus"></i> ABANDONAR TEST</a>
+                    </li>
+                    
+                    <li>
+                        <a href="Admin.html"><i class="fa fa-fw fa-home"></i> TIEMPO RESTASTE: <p align="center">2:56</p></a>
+                    </li>
+                    <li onclick="consultarPreguntasS1();">
+                        <a href="#"><i class="fa fa-fw fa-home"></i> COMENZAR </a>
+                    </li>
+                    <li onclick="ponerOpciones();">
+                        <a href="#"><i class="fa fa-fw fa-home"></i> SIGUIENTE </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            PRUEBA TERMAN MERRIL <small>Aplicacion en linea</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> ACCESO
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+                
+
+                <div class="row" name="other" id="other">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title" id="serie" name="serie"><i class="fa fa-clock-o fa-fw"></i> COLECCION DE RESULTADOS</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="contentAnswer" name="contentAnswer" class="table-responsive">
+                                    <h4>Instrucciones:</h4>
+                                    <p id="inst" name="inst"></p>
+                                    <h4>Ejemplo:</h4>
+                                    <p id="ejemp" name="ejemp"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" id="content" name="content">
+                    <div class="col-lg-12 col-md-6"><p align="right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add" data-toggle="tooltip" data-placement="bottom" title="SIGUIENTE PREGUNTA"><span class="pull-left"><i class="fa fa-plus"></i></span>&nbsp;&nbsp; SIGUIENTE</button></p>
+                    </div>
+                </div>
+                <!-- /.row -->
+                <!-- /.row -->
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>

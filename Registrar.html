@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>TERMAN MERRIL - ADMIN</title>
+    <!-- JQUERY -->
+    <script language="JavaScript" src="js/jquery-1.12.4.min.js" type="text/javascript"></script> 
+
+    <!-- API -->
+    <script type="text/javascript" src="js/methods.js"></script>
+    
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+      
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+      
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body onload="setData();">
+
+    <div id="wrapper" class="container-fluid">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Admin.html">TERMAN MERRIL - ADMINISTRADOR</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="us" name="us"><i class="fa fa-user"></i> John Smith<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="Admin.html"><i class="fa fa-fw fa-user"></i> Inicio</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a onclick="removeData();"><i class="fa fa-fw fa-power-off"></i> Cerrar sesion</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active" id="agrega" name="agrega">
+                        <a href="Registar.html"><i class="fa fa-fw fa-plus"></i> REGISTAR POSTULANTE</a>
+                    </li>
+                    
+                    <li>
+                        <a href="Admin.html"><i class="fa fa-fw fa-home"></i> INICIO</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper" >
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Menu principal <small>resumen</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li class="active">
+                                <i class="fa fa-dashboard"></i> Acceso rapido
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+                <div class="row" id="content" name="content">
+                    <div class="col-lg-12 col-md-6"><p align="right">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#add" data-toggle="tooltip" data-placement="bottom" title="Añade una nueva cuenta al sistema para dar acceso a un postulante."><span class="pull-left"><i class="fa fa-plus"></i></span>&nbsp;&nbsp; AGREGAR</button></p>
+                    </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+                <div class="row" name="other" id="other">
+                    <div class="col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> COLECCION DE RESULTADOS</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="contentAnswer" name="contentAnswer" class="table-responsive"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+           
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Modal Add -->
+    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="add">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 align="center" class="modal-title" id="myModalLabel">AÑADIR UN NUEVO POSTULANTE AL SISTEMA</h4>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputName" placeholder="NOMBRE">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputApellidos" placeholder="APELLIDOS">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputPuesto" placeholder="PUESTO">
+              </div>
+              <div class="form-group">
+                <select style="width:100%" id="inputTipo">
+                  <option value="" disabled selected>TIPO DE CUENTA</option>
+                  <option id="1" name="1" value="ADMINISTRADOR">ADMINISTRADOR</option>
+                  <option id="2" name="2" value="POSTULANTE">POSTULANTE</option>
+                </select>
+              </div><div class="form-group">
+                <input type="text" class="form-control" id="inputCorreo" placeholder="CORREO ELECTRONICO">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputContrasena" placeholder="CREA UNA CONTRASEÑA">
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputConfirmar" placeholder="CONFIRMA CONTRASEÑA">
+              </div>
+              <p align="right"><button  type="submit" class="btn btn-success" onclick="insertarPostulante();">REGISTRAR</button></p>
+            </form>
+        </div>
+      </div>
+     </div>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>
