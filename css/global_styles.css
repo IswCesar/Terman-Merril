@@ -1,0 +1,22 @@
+.body{
+    background-color: #CBD0D3;
+    background-image: url(http://www.uppenjamo.edu.mx/img/background.gif);
+    background-size: cover;
+    width: 100%;
+}
+.logo{
+    src:"http://cd.uppenjamo.edu.mx/imgs/logo_verde.png";
+}
+.header{
+    background: #008CA9;
+}
+.h-color{
+    color: white;
+}
+.title-tm{
+    font-size: 4em;
+}
+.landing{
+    background-image: url('img/landing.jpg');
+    background-size: cover;
+}
