@@ -31,3 +31,23 @@
     background: #008CA9;
     color: white;
 }
+#footerTop {
+    border-bottom: 1px solid #e1e2e3;
+    color: #34495e;
+    height: 30px;
+    line-height: 30px;
+    background: #FFF;
+    text-align: center;
+    font-size: 1.5em;
+}
+#footerBottom {
+    color: #34495e;
+    height: 30px;
+    line-height: 30px;
+    background: #F6F7F8;
+    text-align: center;
+    font-size: 1.5em;
+}
+/*
+<span class="glyphicon glyphicon-education"> APLICAR</span>*/
+			

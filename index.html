@@ -34,40 +34,38 @@ and open the template in the editor.
     <![endif]-->
   </head>
   <body class="body" onload="verificarSesion();">
-      <section>
-          <div style="margin-left: 11%;">
-              <a class="navbar-brand h-color" href="http://www.uppenjamo.edu.mx">
-                  <img style="width: 120%; height: 280%;" src="http://cd.uppenjamo.edu.mx/imgs/logo_verde.png"/>
+      <section style="margin-left: 14%; margin-top: 11%; margin-top: 5%;">
+          <div>
+              <a class="navbar-brand h-color" href="http://www.uppenjamo.edu.mx" title="http://www.uppenjamo.edu.mx">
+                  <img style="width: 110%; height: 300%; margin-top: -5%;" src="http://www.uppenjamo.edu.mx/imgs/logo_verde.png"/>
               </a>
           </div>
-          <nav class="navbar header" style="margin-left: 24%; margin-top: 5%; margin-right: 24%;">
+          <nav class="navbar header" style="margin-left: 15%;margin-right: 26%;">
               <div class= "container">
-                  <h1 class="navbar-brand h-color title-tm" style="margin-top: 1%; margin-left: 16%;">Terman Merril</h1>
-                  <div class="navbar-header" style="margin-left: 19%;">
-                      <a class="navbar-brand h-color" href="#"  role="button" data-toggle="modal" data-target="#session" data-placement="bottom" style="text-align: center;">         
-                          <span class="glyphicon glyphicon-user btn btn-default btn-lg"> Administrativo
+                  <h1 class="navbar-brand h-color title-tm" style="margin-top: 1%; margin-left: 14%;">Terman Merril</h1>
+                  <div class="navbar-header" style="margin-left: 21%;">
+                      <a class="navbar-brand h-color" href="#" title="Iniciar sesion como administrativo" role="button" data-toggle="modal" data-target="#session" data-placement="bottom" style="text-align: center;">         
+                          <img style="height: 260%; margin-top: -6%;" src="img/login.png" alt="cd"/>
                       </a>
                   </div>
               </div>
           </nav>
       </section>
       <section>
-          <div class="container" style="width: 45%; margin-top: 3%;">
-            <div class="jumbotron" style="background-image: url('img/uppe.jpg'); background-size: cover;">
-              <div class="container-fluid" style="margin-top: 2%; 0px;">
+          <div class="container" style="width: 45%; margin-top: 3%; background: transparent;">
+            <div class="jumbotron" style=" border-radius: 20px; background: transparent; background-image: url('img/uppe.jpg'); background-repeat: no-repeat;">
+              <div class="container-fluid" style="margin-top: 20%; text-align: center;">
                   <p align="center" style="background: lightgray; border-radius: 10px; opacity: 0.8;"><strong>APLICA Y UNETE A NUESTRO EQUIPO DE TRABAJO</strong></p>
-                  <p align="center">
-                    <a class="btn btn-primary btn-lg" href="#" role="button" data-toggle="modal" data-target="#proof" data-placement="bottom">
-                        <span class="glyphicon glyphicon-education"> APLICAR</span>
-                    </a>
-                  </p>
+                  <a class="btn btn-primary btn-lg" href="#" title="Aplicar Test" role="button" data-toggle="modal" data-target="#proof" data-placement="bottom" style="margin-bottom: -5%; margin-top: 5%;">
+                    <img src="http://www.uppenjamo.edu.mx/img/shortcuts/normatividad.png"/>&nbsp;Aplicar
+                  </a>
               </div>
             </div>
           </div>
       </section>
       
       <section>
-        <div class="container">
+        <div class="container" style="margin-top: -5%;">
           <div class="row">
               <div class="col-sm-5 col-sm-offset-2 col-md-4">
                   <div class="container-fluid">
@@ -98,8 +96,16 @@ and open the template in the editor.
           </div>
         </div>
       </section>
-      </br>
-      <p align="center">Copyright &copy; Universidad Politecnica de Penjamo. All Rights Reserved</p>
+      <footer style="margin-left: 11%; margin-right: 11%; margin-bottom: 3%; margin-top: 8%;">      
+		<footer-item>
+    		<section id="footerTop" class="style-scope footer-item" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+    			© Universidad Politécnica de Pénjamo
+    		</section>
+    		<section id="footerBottom" class="style-scope footer-item" style="border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
+    			Carretera Irapuato - La Piedad Km 44, Predio El Derramadero, Pénjamo, Gto., C.P. 36921 | Tel: (469) 692.60.00
+    		</section>
+	   </footer-item>	
+      </footer>
       
       <!-- Modal session -->
     <div class="modal fade" id="session" tabindex="-1" role="dialog" aria-labelledby="session">
