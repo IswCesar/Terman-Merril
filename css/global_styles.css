@@ -48,6 +48,11 @@
     text-align: center;
     font-size: 1.5em;
 }
-/*
-<span class="glyphicon glyphicon-education"> APLICAR</span>*/
+#login{
+    text-align: center;
+    opacity: 0.5;
+}
+#login:hover{
+    opacity: 1;
+}
 			
