@@ -1,6 +1,16 @@
 .body{
     background-color: #CBD0D3;
-    background-image: url('http://www.uppenjamo.edu.mx/img/background.gif');
+    background-image: url(http://www.uppenjamo.edu.mx/img/background.gif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    color: #34495e;
+    font-family: 'Roboto';
+    font-weight: 300;
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.231;
+    overflow-x: hidden;
     width: 100%;
 }
 .header{
@@ -10,7 +20,14 @@
     color: white;
 }
 .title-tm{
-    font-size: 3em;
+    font-size: 4em;
     font-family: 'Roboto';
-    margin-top: 1%;
+}
+.text{
+    text-align: justify;
+    font-size: 1.5em;
+}
+.modal-custom{
+    background: #008CA9;
+    color: white;
 }
