@@ -5,7 +5,7 @@ function callServiceLoggin() {
     var pass = document.getElementById('inputContrasena').value;
     var body = {'action': 'loggin', 'usuario': user, 'clave': pass};
     $.ajax({
-         url: 'http://localhost/webServiceTerman/',
+         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
          type: 'POST',
          data: JSON.stringify(body),
          contentType: 'application/json',
@@ -19,19 +19,19 @@ function callServiceLoggin() {
              
             if(charge == '1')
             {
-                alert("INICIANDO SESION COMO ADMINISTRADOR");
-                window.location="Admin.html";
                 localStorage.user = name;
                 localStorage.type = charge;
+                alert("INICIANDO SESION COMO ADMINISTRADOR");
+                window.location="Admin.html";
             }
             else
                 {
-                    if(charge == '2')
+                    if(charge == '0')
                     {
-                        alert("INICIANDO SESION COMO POSTULANTE");
-                        window.location="Postulante.html";
                         localStorage.user = name;
                         localStorage.type = charge;
+                        alert("INICIANDO SESION");
+                        window.location="Usuario.html";
                     }
                     else
                     {
@@ -71,15 +71,27 @@ function removeData()
 
 function verificarSesion()
 {
+    if(localStorage.user == null)
+    {
+        alert(localStorage.user);
+        window.location = "index.html";
+    }
+}
+
+function verificarSesionIndex()
+{
     if(localStorage.user != null)
     {
-        if(localStorage.type == 1){
-            window.location = "Admin.html";
-            alert("UNA SESION YA ESTA INICIADA COMO ADMINISTRADOR, REDIRECCIONANADO A SU PAGINA PRINCIPAL....");
-        }
-        if(localStorage.type == 2){
-            window.location = "Postulante.html";
-            alert("UNA SESION YA ESTA INICIADA COMO POSTULANTE, REDIRECCIONANADO A SU PAGINA PRINCIPAL....");
+        alert(localStorage.type);
+        switch(localStorage.type){
+            case "1":
+                window.location = "Admin.html";
+                alert("UNA SESION YA ESTA INICIADA COMO ADMINISTRADOR, REDIRECCIONANADO A SU PAGINA PRINCIPAL....");
+            break;
+            case "2":
+                window.location = "Postulante.html";
+                alert("UNA SESION YA ESTA INICIADA COMO POSTULANTE, REDIRECCIONANADO A SU PAGINA PRINCIPAL....");
+            break;
         }
     }
 }
@@ -101,14 +113,13 @@ function insertarPostulante()
         {
             var body = {'action': 'cUsuario', 'email': correo, 'password': contrasena, 'nombres': nombre, 'apellidos': apellidos, 'cargo': puesto};
             $.ajax({
-                 url: 'http://localhost/webServiceTerman/',
+                 url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
                  type: 'POST',
                  data: JSON.stringify(body),
                  contentType: 'application/json',
                  dataType: 'json',
                  async: false,
                  success: function (data) {
-                    
                      alert(data.message)
                  },
                  error: function (jqXHR, exception) {
@@ -141,7 +152,7 @@ function consultarPostulante()
 {
 	var body = {'action':'rUsuario'};
     $.ajax({
-         url: 'http://localhost/webServiceTerman/',
+         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
          type: 'POST',
          data: JSON.stringify(body),
          contentType: 'application/json',
@@ -176,7 +187,7 @@ function consultarSerie1()
 {
 	var body = {'action':'cSerie1'};
     $.ajax({
-         url: 'http://localhost/webServiceTerman/',
+         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
          type: 'POST',
          data: JSON.stringify(body),
          contentType: 'application/json',
@@ -184,7 +195,7 @@ function consultarSerie1()
          async: false,
          success: function (data) {
              var content = document.getElementById("serie");
-             content.innerHTML= "SERIE 1";
+             content.innerHTML = "SERIE 1";
              var instrucciones = document.getElementById("inst");
              var ejemplo = document.getElementById("ejemp");
              var a;
@@ -212,7 +223,7 @@ function consultarPreguntasS1()
     var z = 0;
     var body = {'action':'cPreguntasSerie1'};
     $.ajax({
-         url: 'http://localhost/webServiceTerman/',
+         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
          type: 'POST',
          data: JSON.stringify(body),
          contentType: 'application/json',
