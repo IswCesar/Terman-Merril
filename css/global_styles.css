@@ -1,4 +1,4 @@
-.body{
+body{
     background-color: #CBD0D3;
     background-image: url(http://www.uppenjamo.edu.mx/img/background.gif);
     background-repeat: no-repeat;
@@ -8,7 +8,7 @@
     font-family: 'Roboto';
     font-weight: 300;
     margin: 0;
-    font-size: 1em;
+    font-size: 1.5em;
     line-height: 1.231;
     overflow-x: hidden;
     width: 100%;
@@ -16,37 +16,20 @@
 .header{
     background: #008CA9;
 }
-.h-color{
-    color: white;
-}
 .title-tm{
-    font-size: 4em;
+    font-size: 2.5em;
     font-family: 'Roboto';
-}
-.text{
-    text-align: justify;
-    font-size: 1.5em;
+    color: white;
 }
 .modal-custom{
     background: #008CA9;
     color: white;
-}
-#footerTop {
-    border-bottom: 1px solid #e1e2e3;
-    color: #34495e;
-    height: 30px;
-    line-height: 30px;
-    background: #FFF;
-    text-align: center;
-    font-size: 1.5em;
 }
 #footerBottom {
     color: #34495e;
     height: 30px;
     line-height: 30px;
     background: #F6F7F8;
-    text-align: center;
-    font-size: 1.5em;
 }
 #login{
     text-align: center;
@@ -55,4 +38,147 @@
 #login:hover{
     opacity: 1;
 }
-			
+#header {
+    background: transparent;
+    height: auto !important;
+    margin-top: 5%;
+}
+.colHeader {
+    display: inline-block;
+    margin: 0 auto;
+}
+.logoHeader{
+    width: 15%;
+}
+.titleHeader{
+    width: 70%;
+}
+.sessionHeader{
+    width: 5%;
+}
+.descHeader {
+    padding: 0%;
+    width: 100%;
+}
+.colIntro {
+    display: inline-block;
+    margin: 0 auto;
+    width: 99.8%;
+}
+.descIntro {
+    padding: 0%;
+    text-align: center;
+    width: 96%;
+}
+#footer {
+    background: #F6F7F8;
+    border: 1px solid;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    height: auto !important;
+}
+.sections {
+    margin: 10px auto;
+    text-align: center;
+    vertical-align: top;
+    padding: 0;
+    width: 70%;
+}
+.colFooter {
+    display: inline-block;
+    margin: 0 auto;
+    width: 49.7%;
+}
+.descFooter {
+    padding: 4%;
+    text-align: justify;
+    width: 96%;
+}
+.colFooter h4, .colIntro h4 {
+    color: #008CA9;   
+    background: #FFF;
+    border-bottom: 1px solid #e1e2e3;
+    height: 30px;
+    line-height: 30px;
+    padding: 0%;
+    width: 100%;
+    margin-top: 0%;
+    text-align: center;
+}
+#footerTop {
+    color: #34495e;
+    margin-top: 2%;
+    background: #FFF;
+    border-bottom: 1px solid #e1e2e3;
+    height: 30px;
+    line-height: 30px;
+    padding: 0%;
+    width: 100%;
+    margin-top: 0%;
+    text-align: center;
+}
+.carreras_doble {
+    background: #F6F7F8;
+    border: 1px solid;
+        border-top-color: currentcolor;
+        border-right-color: currentcolor;
+        border-bottom-color: currentcolor;
+        border-left-color: currentcolor;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    display: inline-block;
+    height: 335px;
+    margin: 5px 5px;
+    width: 80%;
+    vertical-align: top;
+}
+#upp {
+    border-radius: 3px 3px 0 0;
+    background: url('../img/uppe.jpg');
+    background-repeat: no-repeat;
+        background-size: auto auto;
+    background-size: cover;
+    height: 75%;
+    vertical-align: middle;
+}
+h3 {
+    background: #FFF;
+    color: #2a99af;
+    font-size: 18px;
+    font-weight: 300;
+    height: 10%;
+    padding: 1% 0;
+    text-align: center;
+    width: 100%;
+    vertical-align: top;
+    margin-bottom: 1%;
+    margin-top: 0%;
+}
+.readMore {
+    background: #008CA9;
+    color: #FFF;
+    border-radius: 3px;
+    font-size: 14px;
+    margin: auto;
+    margin-top: 0%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 20%;
+    font-size: 1.1em;
+}
+.readMore:hover{    
+    background: #009BB1;
+    color: black;
+}
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: top;
+}
