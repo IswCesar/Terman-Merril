@@ -51,10 +51,18 @@ body{
     width: 15%;
 }
 .titleHeader{
-    width: 70%;
+    width: 67%;
 }
 .sessionHeader{
-    width: 5%;
+    width: 13%;
+}
+#reloj{
+    border: solid;
+    border-color: #EEE;
+    background: #CCC;
+    opacity: 0.5;
+    color: #008CA9;
+    border-radius: 10px;
 }
 .descHeader {
     padding: 0%;
