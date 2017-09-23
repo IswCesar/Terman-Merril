@@ -43,6 +43,12 @@ body{
     height: auto !important;
     margin-top: 5%;
 }
+#header-pos {
+    background: transparent;
+    height: auto !important;
+    margin-top: 2%;
+    margin-left: 11%;
+}
 .colHeader {
     display: inline-block;
     margin: 0 auto;
@@ -55,14 +61,6 @@ body{
 }
 .sessionHeader{
     width: 13%;
-}
-#reloj{
-    border: solid;
-    border-color: #EEE;
-    background: #CCC;
-    opacity: 0.5;
-    color: #008CA9;
-    border-radius: 10px;
 }
 .descHeader {
     padding: 0%;
@@ -77,6 +75,12 @@ body{
     padding: 0%;
     text-align: center;
     width: 96%;
+}
+.descPreg-4 {
+    display: inline-block;
+    padding: 0%;
+    text-align: center;
+    width: 20%;
 }
 #footer {
     background: #F6F7F8;

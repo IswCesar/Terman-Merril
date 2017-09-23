@@ -1,11 +1,13 @@
 //----------------------------------------------------------LOGIN METHODS------------------------------------------------------------//
 
+var host_url = 'http://127.0.0.1/terman-merril/webServiceTerman/';
+
 function callServiceLoggin() {
     var user = document.getElementById('inputUsuario').value;
     var pass = document.getElementById('inputContrasena').value;
     var body = {'action': 'loggin', 'usuario': user, 'clave': pass};
     $.ajax({
-         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
+         url: host_url,
          type: 'POST',
          data: JSON.stringify(body),
          contentType: 'application/json',
@@ -21,7 +23,6 @@ function callServiceLoggin() {
             {
                 localStorage.user = name;
                 localStorage.type = charge;
-                alert("INICIANDO SESION COMO ADMINISTRADOR");
                 window.location="Admin.html";
             }
             else
@@ -30,7 +31,6 @@ function callServiceLoggin() {
                     {
                         localStorage.user = name;
                         localStorage.type = charge;
-                        alert("INICIANDO SESION");
                         window.location="Usuario.html";
                     }
                     else
@@ -73,7 +73,6 @@ function verificarSesion()
 {
     if(localStorage.user == null)
     {
-        alert(localStorage.user);
         window.location = "index.html";
     }
 }
@@ -82,17 +81,22 @@ function verificarSesionIndex()
 {
     if(localStorage.user != null)
     {
-        alert(localStorage.type);
         switch(localStorage.type){
             case "1":
                 window.location = "Admin.html";
-                alert("UNA SESION YA ESTA INICIADA COMO ADMINISTRADOR, REDIRECCIONANADO A SU PAGINA PRINCIPAL....");
             break;
             case "2":
                 window.location = "Postulante.html";
-                alert("UNA SESION YA ESTA INICIADA COMO POSTULANTE, REDIRECCIONANADO A SU PAGINA PRINCIPAL....");
             break;
         }
+    }
+}
+
+function verificarSerieActual()
+{
+    if(localStorage.sesion < 1)
+    {        
+        window.location = "index.html";
     }
 }
 
@@ -113,7 +117,7 @@ function insertarPostulante()
         {
             var body = {'action': 'cUsuario', 'email': correo, 'password': contrasena, 'nombres': nombre, 'apellidos': apellidos, 'cargo': puesto};
             $.ajax({
-                 url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
+                 url: host_url,
                  type: 'POST',
                  data: JSON.stringify(body),
                  contentType: 'application/json',
@@ -152,7 +156,7 @@ function consultarPostulante()
 {
 	var body = {'action':'rUsuario'};
     $.ajax({
-         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
+         url: host_url,
          type: 'POST',
          data: JSON.stringify(body),
          contentType: 'application/json',
@@ -182,89 +186,3 @@ function consultarPostulante()
      });
 }
 
-//---------------------------------------------------CONSULTAR SERIES-----------------------------------------------------//
-function consultarSerie1()
-{
-	var body = {'action':'cSerie1'};
-    $.ajax({
-         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
-         type: 'POST',
-         data: JSON.stringify(body),
-         contentType: 'application/json',
-         dataType: 'json',
-         async: false,
-         success: function (data) {
-             var content = document.getElementById("serie");
-             content.innerHTML = "SERIE 1";
-             var instrucciones = document.getElementById("inst");
-             var ejemplo = document.getElementById("ejemp");
-             var a;
-             var b;
-		     $.each(data, function(i, item) {
-                a = data[i].instrucciones;
-                b = data[i].ejemplo;
-		    });
-            instrucciones.innerHTML = a;
-            ejemplo.innerHTML = b;
-            
-         },
-         error: function () {
-             alert('Error in Operation');
-         }
-     });
-}
-var arr = new Array();
-var z = 0;
-function consultarPreguntasS1() 
-{
-    localStorage.pregunta = 0;
-    var content = document.getElementById("contentAnswer");
-    content.innerHTML = "";
-    var z = 0;
-    var body = {'action':'cPreguntasSerie1'};
-    $.ajax({
-         url: 'http://127.0.0.1/terman-merril/webServiceTerman/',
-         type: 'POST',
-         data: JSON.stringify(body),
-         contentType: 'application/json',
-         dataType: 'json',
-         async: false,
-         success: function (data) {
-             var a;
-             var b;
-             var c;
-             var d;
-		     $.each(data, function(i, item) {
-                a = data[i].id_pregunta;
-                b = data[i].noPregunta;
-                c = data[i].pregunta;
-                d = data[i].noSerie;
-                arr[i] = new Array(a,b,c,d); 
-                 
-		    });
-         },
-         error: function () {
-             alert('Error in Operation');
-         }
-     });
-    
-    ponerOpciones();
-}
-
-function ponerOpciones()
-{
-    var content = document.getElementById("contentAnswer");
-    var pregunta = arr[localStorage.pregunta][2];
-    z = z + 1;
-    localStorage.pregunta = z;
-    content.innerHTML = "<h4>"+ pregunta +"</h4>";
-    /*
-    content.innerHTML = '<input type="radio" name="respuesta" value ='+ arr[localStorage.pregunta][2] +'/>';
-    content.innerHTML = '<input type="radio" name="respuesta" value ='+ arr[localStorage.pregunta][2] +'/>';
-    content.innerHTML = '<input type="radio" name="respuesta" value ='+ arr[localStorage.pregunta][2] +'/>';*/
-}
-
-function ponerRadio()
-{
-    
-}
